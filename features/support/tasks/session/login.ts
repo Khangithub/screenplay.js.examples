@@ -60,6 +60,7 @@ export const login = (portal: string, role: string) => {
         break
       }
       default: {
+        console.error('not a valid portal')
       }
     }
   }

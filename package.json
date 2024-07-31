@@ -52,7 +52,7 @@
     "eslint": "eslint --ext ts,tsx --max-warnings 0 src features",
     "eslint-fix": "eslint --ext ts,tsx --max-warnings 0 --fix src features",
     "pretty-quick": "pretty-quick --staged",
-    "test:hear": "cucumber-js features/hear_shout.feature"
+    "test:merchant_login": "cucumber-js features/merchant_login.feature"
   },
   "repository": {
     "type": "git",

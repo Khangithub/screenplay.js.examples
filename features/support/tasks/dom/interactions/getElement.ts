@@ -6,7 +6,7 @@ import assert from 'assert'
 
 export const getElement = (selector: string, expectedString: string) => {
   return async (actor: Actor<World>) => {
-    const { element, user } = actor.recall<DomUser>('domUser')
+    const { element } = actor.recall<DomUser>('domUser')
     const comparedString = getByText(element, selector)
     await eventually(() => assert.deepStrictEqual(comparedString, expectedString))
   }
