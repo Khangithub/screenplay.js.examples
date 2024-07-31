@@ -5,10 +5,17 @@ import userEvent from '@testing-library/user-event'
 import { TypeMessage } from './types'
 import { DomUser } from '../../../helpers/getDomUser'
 
-export const typeMessage: TypeMessage = (message) => {
-  return async (actor: Actor<World>) => {
+export const typeMessage: TypeMessage = (actor: Actor<World> & {username: string, password: string}) => {
+  return async (actor: Actor<World> & {username: string, password: string}) => {
     const { element } = actor.recall<DomUser>('domUser')
-    const $location = getByLabelText(element, `Message`)
-    userEvent.type($location, '{selectall}' + message)
+    const { username, password} = actor;
+
+    // type username
+    const $usernameLocation = getByLabelText(element, `username`)
+    userEvent.type($usernameLocation, username)
+
+    // type password
+    const $passwordLocation = getByLabelText(element, `password`)
+    userEvent.type($passwordLocation, password)
   }
 }
